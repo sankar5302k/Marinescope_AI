@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern id="waves" patternUnits="userSpaceOnUse" width="200" height="200">
+<path d="M0 50C50 20 100 80 150 50C200 20 200 80 200 80V200H0V50Z" fill="#00ffff" opacity="0.05"/>
+<path d="M0 150C50 120 100 180 150 150C200 120 200 180 200 180V200H0V150Z" fill="#00ffff" opacity="0.03"/>
+<circle cx="20" cy="100" r="8" fill="#00ffff" opacity="0.02"/>
+<circle cx="180" cy="30" r="10" fill="#00ffff" opacity="0.02"/>
+<circle cx="100" cy="10" r="6" fill="#00ffff" opacity="0.01"/>
+</pattern>
+</defs>
+<rect width="200" height="200" fill="url(#waves)"/>
+</svg>

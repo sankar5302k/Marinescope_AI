@@ -1,0 +1,324 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 173 97% 50%; /* Bright Cyan */
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 173, 97%, 50%;
+  
+  --radius: 0.5rem;
+}
+
+body {
+  background-color: #020412; /* Deep space blue */
+  color: #e0f7fa; /* Light cyan text */
+}
+
+/* Custom glow for cards on hover */
+.card-glow:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+.dark .input, .dark .select-trigger {
+    background-color: #020412 !important;
+    border-color: rgba(56, 189, 248, 0.3) !important; /* border-cyan-700/50 */
+    color: #e0f7fa !important;
+}
+
+.dark .input::placeholder {
+    color: rgba(191, 219, 254, 0.5) !important; /* text-blue-300/50 */
+}
+
+.dark .input:focus, .dark .select-trigger:focus {
+    box-shadow: 0 0 0 2px #020412, 0 0 0 4px #0ea5e9 !important; /* ring-cyan-500 */
+    border-color: #0ea5e9 !important; /* border-cyan-500 */
+}
+
+.dark .select-content {
+    background-color: rgba(10, 16, 42, 0.9) !important; /* bg-[#0A102A]/90 */
+    backdrop-filter: blur(8px);
+    border-color: rgba(56, 189, 248, 0.4) !important;
+}
+
+.dark .select-item {
+    color: #e0f7fa !important;
+}
+
+.dark .select-item:focus {
+    background-color: rgba(8, 145, 178, 0.3) !important; /* bg-cyan-800/30 */
+}
+
+/* --- Button Theming --- */
+.dark .btn-primary {
+    background: linear-gradient(to right, #22d3ee, #0ea5e9) !important;
+    color: #fff !important;
+    border: none;
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.dark .btn-primary:hover {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.7);
+    transform: translateY(-1px);
+}
+.dark .btn-primary:disabled {
+    background: #1e293b !important;
+    color: #64748b !important;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* --- Custom File Input --- */
+.dark .file-input::-webkit-file-upload-button {
+    @apply text-cyan-300 bg-cyan-900/50 border-cyan-700/50 hover:bg-cyan-800/50 mr-4 py-2 px-4 rounded-md border cursor-pointer transition-colors;
+}
+/* Custom Animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes pan-background {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 20s infinite ease-in-out;
+}
+
+.animate-pan-background {
+  animation: pan-background 180s linear infinite; /* Very slow, subtle pan */
+}
+
+/* Ensure your existing dark mode styles for ShadCN components are present */
+.dark .input, .dark .select-trigger {
+    background-color: #020412 !important;
+    border-color: rgba(56, 189, 248, 0.3) !important;
+    color: #e0f7fa !important;
+}
+
+.dark .input::placeholder {
+    color: rgba(191, 219, 254, 0.5) !important;
+}
+
+.dark .input:focus, .dark .select-trigger:focus {
+    box-shadow: 0 0 0 2px #020412, 0 0 0 4px #0ea5e9 !important;
+    border-color: #0ea5e9 !important;
+}
+
+.dark .select-content {
+    background-color: rgba(10, 16, 42, 0.9) !important;
+    backdrop-filter: blur(8px);
+    border-color: rgba(56, 189, 248, 0.4) !important;
+}
+
+.dark .select-item {
+    color: #e0f7fa !important;
+}
+
+.dark .select-item:focus {
+    background-color: rgba(8, 145, 178, 0.3) !important;
+}
+
+.dark .btn-primary {
+    background: linear-gradient(to right, #22d3ee, #0ea5e9) !important;
+    color: #fff !important;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.dark .btn-primary:hover {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.7);
+    transform: translateY(-1px);
+}
+.dark .btn-primary:disabled {
+    background: #1e293b !important;
+    color: #64748b !important;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.dark .badge-secondary {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+    color: #94a3b8 !important;
+}
+/* Add these styles to your globals.css */
+
+@keyframes flow {
+  from {
+    left: -10%;
+    opacity: 0.5;
+  }
+  to {
+    left: 110%;
+    opacity: 1;
+  }
+}
+
+.data-flow-pulse {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10%;
+  height: 4px; /* Thickness of the pulse */
+  background: radial-gradient(circle, #99f6e4 0%, rgba(56, 189, 248, 0) 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 8px #99f6e4, 0 0 12px #99f6e4;
+  opacity: 0;
+}
+
+.animate-flow {
+  animation: flow 1.8s linear forwards;
+}
+
+/* Also ensure your previous animations are present */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes pan-background {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 20s infinite ease-in-out;
+}
+
+.animate-pan-background {
+  animation: pan-background 180s linear infinite;
+}
+
+/* Add these styles to your globals.css for the new animation */
+
+@keyframes swim {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.creature-path {
+  /* This parent element holds the creatures and follows the SVG path.
+     We don't draw it, but it defines the animation coordinate system. */
+  pointer-events: none;
+}
+
+.data-creature {
+  position: absolute;
+  offset-anchor: center;
+  width: 8px;
+  height: 8px;
+  background: #99f6e4; /* a bright teal color */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #99f6e4, 0 0 15px #99f6e4, 0 0 20px #fff;
+  opacity: 0;
+  animation: swim 2.5s ease-in-out forwards;
+}
+
+/* Add these styles to your existing globals.css */
+
+/* --- Wave Loader Animation --- */
+.wave-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wave {
+  width: 8px;
+  height: 60px;
+  margin: 0 6px;
+  background: linear-gradient(to bottom, #22d3ee, #0ea5e9);
+  border-radius: 5px;
+  animation: wave-motion 1.2s infinite ease-in-out;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes wave-motion {
+  0% {
+    transform: scaleY(0.1);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.1);
+  }
+}
+.wave-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wave {
+  width: 8px;
+  height: 60px;
+  margin: 0 6px;
+  background: linear-gradient(to bottom, #22d3ee, #0ea5e9);
+  border-radius: 5px;
+  animation: wave-motion 1.2s infinite ease-in-out;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes wave-motion {
+  0% { transform: scaleY(0.1); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(0.1); }
+}
