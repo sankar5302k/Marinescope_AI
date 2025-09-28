@@ -1,0 +1,4 @@
+prefect==2.*
+requests
+pandas
+pyarrow   # for writing parquet files
