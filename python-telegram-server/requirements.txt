@@ -1,0 +1,9 @@
+pymongo
+bson
+Flask
+flask-cors
+numpy
+netCDF4
+Werkzeug
+python-telegram-bot==20.7
+google-generativeai
