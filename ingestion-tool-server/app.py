@@ -3,8 +3,6 @@ import requests
 import pandas as pd
 import os
 
-
-# ----------------- Ocean Weather Data -----------------
 @task
 def fetch_ocean_weather(api_url: str):
     r = requests.get(api_url)
@@ -22,8 +20,6 @@ def store_ocean_weather(df, path="data/ocean_weather.csv"):
     df.to_csv(path, index=False)
     return path
 
-
-# ----------------- Ocean Earthquake (Seismic) Data -----------------
 @task
 def fetch_ocean_seismic(api_url: str):
     r = requests.get(api_url)
@@ -42,7 +38,6 @@ def store_ocean_seismic(df, path="data/ocean_seismic.csv"):
     return path
 
 
-# ----------------- Gene Data from NCBI -----------------
 @task
 def fetch_gene_data(api_url: str, api_key: str):
     headers = {"Accept": "application/json", "api-key": api_key}
@@ -61,8 +56,6 @@ def store_gene_data(df, path="data/gene_data.csv"):
     df.to_csv(path, index=False)
     return path
 
-
-# ----------------- Generic File Upload -----------------
 @task
 def upload_file(file_path: str, upload_url: str):
     """
@@ -71,7 +64,7 @@ def upload_file(file_path: str, upload_url: str):
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
 
-    # Guess MIME type
+  
     if file_path.endswith(".csv"):
         mime_type = "text/csv"
     elif file_path.endswith(".nc"):
@@ -86,17 +79,14 @@ def upload_file(file_path: str, upload_url: str):
     response.raise_for_status()
     return response.json()
 
-
-# ----------------- Flows -----------------
 @flow
 def ocean_data_pipeline(ocean_weather_api: str, ocean_seismic_api: str, gene_api_url: str, gene_api_key: str, upload_url: str):
-    # Ocean Weather
+
     ocean_weather_raw = fetch_ocean_weather(ocean_weather_api)
     ocean_weather_df = transform_ocean_weather(ocean_weather_raw)
     ocean_weather_csv = store_ocean_weather(ocean_weather_df)
     upload_file(ocean_weather_csv, upload_url)
 
-    # Ocean Seismic
     ocean_seismic_raw = fetch_ocean_seismic(ocean_seismic_api)
     ocean_seismic_df = transform_ocean_seismic(ocean_seismic_raw)
     ocean_seismic_csv = store_ocean_seismic(ocean_seismic_df)
@@ -127,7 +117,7 @@ def upload_pipeline(csv_path: str, nc_path: str, upload_url: str):
 
 
 # ----------------- Main Runner -----------------
-if _name_ == "_main_":
+if __name__ == "__main__":
     # 🌊 Pipeline mode
     ocean_weather_api = "https://api.open-meteo.com/v1/forecast?latitude=35&longitude=139&hourly=temperature_2m"
     ocean_seismic_api = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson"
