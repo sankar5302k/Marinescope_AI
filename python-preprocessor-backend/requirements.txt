@@ -1,0 +1,7 @@
+Flask
+flask-cors
+pymongo
+bson
+numpy
+netCDF4
+Werkzeug
