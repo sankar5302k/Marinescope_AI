@@ -45,7 +45,7 @@ npm run dev
 
 # Server 5 - ML server 
 - It uses ARIMA model for time series of selected variables from cdf and csv which is much efficient than regression here.
-- The core ML is implemented for the Insights and Data Visualization and predictions.
+- The core ML and statistical models used for the Insights and Data Visualization and predictions.
 - The RAG + GEMINI is integrated for the Query the chatbot regarding the Insights.
 
 # Server 6 - Telegram server
