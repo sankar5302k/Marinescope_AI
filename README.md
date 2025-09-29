@@ -40,7 +40,7 @@ npm run dev
 
 # Server 4 - MongoDB server
 - The MongoDB local is used for DB as of now.
-- The all Respository files and JSON, csv, Netcdf is stored herr.
+- The all Respository files and JSON, csv, Netcdf is stored her.
 - After selection we will intergrate cloud MongoDB.
 
 # Server 5 - ML server 
