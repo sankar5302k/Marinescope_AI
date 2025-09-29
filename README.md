@@ -25,7 +25,6 @@ python app.py
 # Server 2 - Python preprocessor Backend 
 - This preprocessor server is to Cleans, validates, and processes heterogeneous data (CSV, NetCDF, sensor stream).
 - Metadata-based clustering for efficient organization and retrieval.
-- This preprocessor server in implemented in core python ML library which is Pytorch and the logic is impplemented using ARIMA MODEL, ARIMA MODEL, Time series.
 ``` Setup and Run
 cd python-preprocessor-backend
 python preprocessor_server.py
@@ -45,6 +44,7 @@ npm run dev
 - After selection we will intergrate cloud MongoDB.
 
 # Server 5 - ML server 
+- It uses ARIMA model for time series of selected variables from cdf and csv which is much efficient than regression here.
 - The core ML is implemented for the Insights and Data Visualization and predictions.
 - The RAG + GEMINI is integrated for the Query the chatbot regarding the Insights.
 
